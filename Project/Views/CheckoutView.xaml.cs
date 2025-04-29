@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using RestaurantAppFullImp.Project.Views;
 
 namespace RestaurantAppFullImp.Project.Views;
 
@@ -33,14 +34,24 @@ public partial class CheckoutView : ContentPage
         UpdateCost();
     }
 
-    private void ButtonSubmitOrder(object sender, EventArgs e)
+    private async void ButtonSubmitOrder(object sender, EventArgs e)
     {
+        bool confirm = await DisplayAlert("Confirm Order", "Place this order?", "Yes", "No");
+        if (!confirm) return;
 
+        
+        App.Cart = new RestaurantAppFullImp.Project.Controllers.CartController();
+
+        await DisplayAlert("Order Placed", $"Your total was ${_mealCost:F2}. Thank you!", "OK");
+
+                    
+        await Navigation.PopToRootAsync();
     }
 
-    private void ButtonCancelCheckout(object sender, EventArgs e)
+
+    private async void ButtonCancelCheckout(object sender, EventArgs e)
     {
-        App.Current.Windows[0].Page = new MainMenuPage();
+        await Navigation.PushAsync(new MainMenuPage());
     }
 
     private void UpdateMealCost(object sender, TextChangedEventArgs e)

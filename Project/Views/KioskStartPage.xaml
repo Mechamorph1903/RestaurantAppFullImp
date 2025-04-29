@@ -6,5 +6,7 @@
     <VerticalStackLayout>
         <Entry Placeholder="Enter your Name..."/>
         <Button Text="Start Order" Clicked="StartOrderButton"/>
+        <Button Text="Admin Menu Dashboard" Clicked="OpenMenuDashboard" />
+        <Button Text="Show Database Path" Clicked="ShowDatabasePathClicked" />
     </VerticalStackLayout>
 </ContentPage>

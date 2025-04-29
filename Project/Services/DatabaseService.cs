@@ -8,21 +8,25 @@ using RestaurantAppFullImp.Project.Models;
 using MenuItem = RestaurantAppFullImp.Project.Models.MenuItem;
 
 namespace RestaurantAppFullImp.Project.Services
-{
+{ 
     public class DatabaseService
     {
         private SQLiteAsyncConnection _db;
-
+        public static string DatabasePath = "";
         public async Task Init() 
         {
             if (_db != null)
                 return;
 
             var databasePath = Path.Combine(FileSystem.AppDataDirectory, "MenuDatabase.db");
+
+            DatabasePath = databasePath; // Save the path here
+
             _db = new SQLiteAsyncConnection(databasePath);
 
             await _db.CreateTableAsync<MenuItem>();
 
+            
         }
 
         public async Task<List<MenuItem>> GetAllMenuItems()

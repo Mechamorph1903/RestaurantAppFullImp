@@ -34,7 +34,7 @@
 
         <BoxView Grid.Row="2" BackgroundColor="#00000000"/>
 
-        <VerticalStackLayout Grid.Row="3" Spacing="40">
+        <VerticalStackLayout Grid.Row="3" Spacing="20">
             <Border Style="{StaticResource MenuButtonBorder}">
                 <Button Style="{StaticResource MenuButton}"
                         Text="Build a Combo" Clicked="ButtonBuildCombo"/>
@@ -55,6 +55,7 @@
                 <Button Style="{StaticResource MenuButton}"
                         Text="Add a Desert" Clicked="ButtonAddDessert"/>
             </Border>
+            
         </VerticalStackLayout>
         
         <!--
@@ -106,6 +107,8 @@
                                    VerticalOptions="Center" HorizontalOptions="Center">
                 <Button Text="Delete Selected" Clicked="ButtonDeleteCartItems"/>
                 <Button Text="Checkout" Clicked="ButtonCheckoutCart"/>
+               
+
 
             </HorizontalStackLayout>
         </Grid>

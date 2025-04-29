@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
 
 namespace RestaurantAppFullImp.Project.Models
 {
@@ -27,6 +28,7 @@ namespace RestaurantAppFullImp.Project.Models
     {
         public static decimal MEDIUM_RATE = 0.25M;
         public static decimal LARGE_RATE = 0.75M;
+        [PrimaryKey, AutoIncrement]
         public int DatabaseID { get; set; } = 0;
         public string ItemName { get; set; } = "NA";
         public decimal ItemPrice { get; set; } = 0.0M;

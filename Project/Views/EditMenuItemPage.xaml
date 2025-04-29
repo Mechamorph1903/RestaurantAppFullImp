@@ -1,0 +1,29 @@
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RestaurantAppFullImp.Project.Views.EditMenuItemPage"
+    Title="Edit Menu Item">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Entry x:Name="entryName" Placeholder="Item Name" />
+        <Entry x:Name="entryPrice" Placeholder="Price" Keyboard="Numeric" />
+
+        <Picker x:Name="pickerType" Title="Select Item Type">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>ENTREE</x:String>
+                    <x:String>SIDE</x:String>
+                    <x:String>DRINK</x:String>
+                    <x:String>DESSERT</x:String>
+                    <x:String>APPETIZER</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Switch x:Name="switchHasSize" />
+        <Label Text="Has Size?" />
+
+        <Button Text="Save Changes" Clicked="OnSaveClicked" />
+    </VerticalStackLayout>
+</ContentPage>

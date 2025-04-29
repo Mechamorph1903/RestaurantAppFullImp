@@ -38,11 +38,12 @@ public partial class MenuDashboard : ContentPage
 
     private async void OnAddClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Add Item", "Here you would navigate to a new Add Item Page (to be built).", "OK");
+        await Navigation.PushAsync(new AddMenuItemPage());
     }
 
     private async void OnEditClicked(object sender, EventArgs e)
     {
+
         var selectedItem = menuCollectionView.SelectedItem as MenuItem;
         if (selectedItem == null)
         {
@@ -50,7 +51,7 @@ public partial class MenuDashboard : ContentPage
             return;
         }
 
-        await DisplayAlert("Edit Item", $"Here you would navigate to edit: {selectedItem.ItemName}", "OK");
+        await Navigation.PushAsync(new EditMenuItemPage(selectedItem));
     }
 
     private async void OnDeleteClicked(object sender, EventArgs e)

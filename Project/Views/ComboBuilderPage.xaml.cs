@@ -11,44 +11,41 @@ public partial class ComboBuilderPage : ContentPage
 	Models.MenuSizeType MealSize = Models.MenuSizeType.SMALL;
 
     public ComboBuilderPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
+        LoadComboOptions(); 
+    }
 
-		var entrees = App.Menu.GetItems(MenuItemType.ENTREE);
-		var sides = App.Menu.GetItems(MenuItemType.SIDE);
-		var drinks = App.Menu.GetItems(MenuItemType.DRINK);
+    private async void LoadComboOptions()
+    {
+        var entrees = await App.Menu.GetItems(MenuItemType.ENTREE);
+        var sides = await App.Menu.GetItems(MenuItemType.SIDE);
+        var drinks = await App.Menu.GetItems(MenuItemType.DRINK);
 
-		ObservableCollection<ComboItemView> entreeViews = new();
-		foreach (var entree in entrees)
-		{
-			MenuItem item = entree.DeepCopy();
-			entreeViews.Add(new ComboItemView { Item = item });
-		}
-		ObservableCollection<ComboItemView> sideViews = new();
-		foreach (var side in sides)
-		{
-            MenuItem item = side.DeepCopy();
-            sideViews.Add(new ComboItemView { Item = item });
-		}
-		ObservableCollection<ComboItemView> drinkViews = new();
-		foreach (var drink in drinks)
-		{
-            MenuItem item = drink.DeepCopy();
-            drinkViews.Add(new ComboItemView { Item = item });
-		}
-		collEntreeSelection.ItemsSource = entreeViews;
-		collSideSelection.ItemsSource = sideViews;
-		collDrinkSelection.ItemsSource = drinkViews;
+        ObservableCollection<ComboItemView> entreeViews = new();
+        foreach (var entree in entrees)
+            entreeViews.Add(new ComboItemView { Item = entree.DeepCopy() });
 
-		collSizeSelection.ItemsSource = new ObservableCollection<SizeTypeView>
-		{
-            new SizeTypeView {Text = "Small" },
-            new SizeTypeView {Text = "Medium", Rate=$"+{MenuItem.MEDIUM_RATE:F2}%" },
-            new SizeTypeView {Text = "Large", Rate=$"+{MenuItem.LARGE_RATE:F2}%" }
-        };
-	}
+        ObservableCollection<ComboItemView> sideViews = new();
+        foreach (var side in sides)
+            sideViews.Add(new ComboItemView { Item = side.DeepCopy() });
 
-	private void SelectEntree(object sender, SelectionChangedEventArgs e)
+        ObservableCollection<ComboItemView> drinkViews = new();
+        foreach (var drink in drinks)
+            drinkViews.Add(new ComboItemView { Item = drink.DeepCopy() });
+
+        collEntreeSelection.ItemsSource = entreeViews;
+        collSideSelection.ItemsSource = sideViews;
+        collDrinkSelection.ItemsSource = drinkViews;
+
+        collSizeSelection.ItemsSource = new ObservableCollection<SizeTypeView>
+    {
+        new SizeTypeView {Text = "Small" },
+        new SizeTypeView {Text = "Medium", Rate=$"+{MenuItem.MEDIUM_RATE:F2}%" },
+        new SizeTypeView {Text = "Large", Rate=$"+{MenuItem.LARGE_RATE:F2}%" }
+    };
+    }
+    private void SelectEntree(object sender, SelectionChangedEventArgs e)
 	{
 
 		if (collEntreeSelection.SelectedItem == null)

@@ -47,10 +47,6 @@ public partial class MainMenuPage : ContentPage
         }
 	}
 
-    private void ButtonBuildCombo(object sender, EventArgs e)
-    {
-		App.Current.Windows[0].Page = new ComboBuilderPage();
-    }
 
     private void ButtonDeleteCartItems(object sender, EventArgs e)
     {
@@ -70,28 +66,35 @@ public partial class MainMenuPage : ContentPage
 			view_items.Remove(item);
     }
 
-    private void ButtonCheckoutCart(object sender, EventArgs e)
+    private async void ButtonAddEntree(object sender, EventArgs e)
     {
-		App.Current.Windows[0].Page = new Project.Views.CheckoutView();
+        await Navigation.PushAsync(new ItemAddPage(MenuItemType.ENTREE));
     }
 
-    private void ButtonAddEntree(object sender, EventArgs e)
+    private async void ButtonAddSide(object sender, EventArgs e)
     {
-		App.Current.Windows[0].Page = new Project.Views.ItemAddPage(MenuItemType.ENTREE);
+        await Navigation.PushAsync(new ItemAddPage(MenuItemType.SIDE));
     }
 
-    private void ButtonAddSide(object sender, EventArgs e)
+    private async void ButtonAddDrink(object sender, EventArgs e)
     {
-        App.Current.Windows[0].Page = new Project.Views.ItemAddPage(MenuItemType.SIDE);
+        await Navigation.PushAsync(new ItemAddPage(MenuItemType.DRINK));
     }
 
-    private void ButtonAddDrink(object sender, EventArgs e)
+    private async void ButtonAddDessert(object sender, EventArgs e)
     {
-        App.Current.Windows[0].Page = new Project.Views.ItemAddPage(MenuItemType.DRINK);
+        await Navigation.PushAsync(new ItemAddPage(MenuItemType.DESSERT));
     }
 
-    private void ButtonAddDessert(object sender, EventArgs e)
+    private async void ButtonBuildCombo(object sender, EventArgs e)
     {
-        App.Current.Windows[0].Page = new Project.Views.ItemAddPage(MenuItemType.DESSERT);
+        await Navigation.PushAsync(new ComboBuilderPage());
     }
+
+    private async void ButtonCheckoutCart(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new CheckoutView());
+    }
+
+   
 }

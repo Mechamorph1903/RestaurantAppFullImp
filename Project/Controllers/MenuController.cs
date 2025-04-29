@@ -2,6 +2,9 @@
 using RestaurantAppFullImp.Project.Models;
 using MenuItem = RestaurantAppFullImp.Project.Models.MenuItem;
 using RestaurantAppFullImp.Project.Services;
+using System.Diagnostics; // Ensure this namespace is included for Debug.WriteLine
+using System.IO; // Ensure this namespace is included for Path
+
 
 namespace RestaurantAppFullImp.Project.Controllers
 {
@@ -11,8 +14,11 @@ namespace RestaurantAppFullImp.Project.Controllers
 
         public MenuController()
         {
+            
+
             _ = PreloadMenuItems();
         }
+
 
         public async Task<List<MenuItem>> GetItems(MenuItemType? type = null)
         {

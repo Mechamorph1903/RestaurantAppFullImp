@@ -1,4 +1,5 @@
-﻿namespace RestaurantAppFullImp
+﻿using RestaurantAppFullImp.Project.Views;
+namespace RestaurantAppFullImp
 {
     using RestaurantAppFullImp.Project.Controllers;
 
@@ -14,9 +15,8 @@
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new NavigationPage(new Project.Views.MainMenuPage()));
+            return new Window(new NavigationPage(new KioskStartPage()));
         }
-
         static App()
         {
             Menu = new MenuController();

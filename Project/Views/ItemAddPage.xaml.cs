@@ -36,17 +36,18 @@ public partial class ItemAddPage : ContentPage
     public ItemAddPage(MenuItemType type)
     {
         InitializeComponent();
-
-        //add constructor logic here.
         _itemType = type;
         BindingContext = this;
-        var menuItems = App.Menu.GetItems(_itemType);
+        LoadItems(); // Fire-and-forget
+    }
+
+    private async void LoadItems()
+    {
+        var menuItems = await App.Menu.GetItems(_itemType);
         foreach (var item in menuItems)
         {
             Items.Add(new ItemSelectView { Item = item });
         }
-
-
     }
 
 
