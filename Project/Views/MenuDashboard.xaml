@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RestaurantAppFullImp.Project.Views.MenuDashboard"
+             Title="MenuDashboard">
+    <VerticalStackLayout Padding ="20" Spacing="13">
+
+        <SearchBar 
+            x:Name="searchBar"
+            Placeholder="Search for items"
+            TextChanged="OnSearchTextChanged"
+            />
+
+
+        <CollectionView x:Name="menuCollectionView" SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" Padding="10" CornerRadius="8">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding ItemName}" FontSize="18"/>
+                            <Label Text="{Binding ItemPrice,StringFormat=`Price: {0:C}`}" FontSize="14"/>
+                            <Label Text="{Binding Type}" FontSize="14"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="Add" Clicked="OnAddClicked" />
+            <Button Text="Edit" Clicked="OnEditClicked" />
+            <Button Text="Delete" Clicked="OnDeleteClicked" />
+            <Button Text="Refresh" Clicked="OnRefreshClicked" />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>
