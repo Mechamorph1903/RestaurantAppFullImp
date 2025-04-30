@@ -3,6 +3,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="RestaurantAppFullImp.Project.Views.MenuDashboard"
     Title="Menu Dashboard">
+    <!--
+    I acknowledge the following statements:
+    That the code I provide below is my own work and NOT copied from any outside resource,
+    unless given explicit permission by the instructor.
+    That the code I provide below is my own work and NOT the work of my peers or any other individual,
+    unless given explicit permission by the instructor.
+    That if the code below is in violation of the above statements, I may be subject to penalties.
+    Your Name: Daniel Anorue
+    Your Student ID: 10166216
+-->
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">

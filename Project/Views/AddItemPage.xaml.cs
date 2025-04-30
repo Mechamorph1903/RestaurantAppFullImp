@@ -1,6 +1,18 @@
 using RestaurantAppFullImp.Project.Models;
 using MenuItem = RestaurantAppFullImp.Project.Models.MenuItem;
 
+
+/*
+    I acknowledge the following statements:
+    That the code I provide below is my own work and NOT copied from any outside resource,
+    unless given explicit permission by the instructor.
+    That the code I provide below is my own work and NOT the work of my peers or any other individual,
+    unless given explicit permission by the instructor.
+    That if the code below is in violation of the above statements, I may be subject to penalties.
+    Your Name: Daniel Anorue
+    Your Student ID: 10166216
+*/
+
 namespace RestaurantAppFullImp.Project.Views
 {
     public partial class AddMenuItemPage : ContentPage
